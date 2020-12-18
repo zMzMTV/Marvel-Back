@@ -3,26 +3,68 @@ const router = express.Router();
 const axios = require("axios");
 const md5 = require("md5");
 const uid2 = require("uid2");
+require("dotenv").config();
 
-const publicKey = process.env.PUBLIC_KEY;
-const privateKey = process.env.PRIVATE_KEY;
+const apiKey = process.env.MARVEL_PUBLIC_API_KEY;
+const privateKey = process.env.MARVEL_SECRET_API_KEY;
 
 router.get("/characters", async (req, res) => {
   try {
-    // Generate TS
-    const ts = uid2(12);
-    const hash = md5(ts + privateKey + publicKey);
-
-    const { page } = req.query;
-    let offset = page * 100 - 100;
-
+    const ts = uid2(8);
+    const hash = md5(ts + privateKey + apiKey);
     const response = await axios.get(
-      `https://gateway.marvel.com/v1/public/characters?ts=${ts}&apikey=${publicKey}&hash=${hash}&limit=100&offset=${offset}`
+      `http://gateway.marvel.com/v1/public/characters?ts=${ts}&apikey=${apiKey}&hash=${hash}`
     );
-    console.log(response.data);
     return res.json(response.data);
   } catch (error) {
-    res.status(400).json({ message: error.message });
+    return res.status(400).json(error.message);
+  }
+});
+
+router.get("/character/:id", async (req, res) => {
+  try {
+    const id = req.params.id;
+    const date = new Date();
+    const ts = Math.floor(date.getTime() / 1000);
+    const hash = md5(ts + privateKey + apiKey);
+
+    const response = await axios.get(
+      `http://gateway.marvel.com/v1/public/characters/${id}?ts=${ts}&apikey=${apiKey}&hash=${hash}`
+    );
+
+    return res.json(response.data);
+  } catch (error) {
+    return res.status(403).json(error.message);
+  }
+});
+
+router.get("/character/:id/comics", async (req, res) => {
+  try {
+    const id = req.params.id;
+    const date = new Date();
+    const ts = Math.floor(date.getTime() / 1000);
+    const hash = md5(ts + privateKey + apiKey);
+
+    const response = await axios.get(
+      `http://gateway.marvel.com/v1/public/characters/${id}/comics?ts=${ts}&apikey=${apiKey}&hash=${hash}`
+    );
+
+    return res.json(response.data);
+  } catch (error) {
+    return res.status(403).json(error.message);
+  }
+});
+
+router.get("/comics", async (req, res) => {
+  try {
+    const ts = uid2(8);
+    const hash = md5(ts + privateKey + apiKey);
+    const response = await axios.get(
+      `http://gateway.marvel.com/v1/public/comics?ts=${ts}&apikey=${apiKey}&hash=${hash}`
+    );
+    return res.json(response.data);
+  } catch (error) {
+    console.log("comics error", error.message);
   }
 });
 
