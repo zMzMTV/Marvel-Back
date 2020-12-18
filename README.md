@@ -16,23 +16,23 @@ Fullstack project using the ![Marvel Developper API](https://developer.marvel.co
 
 ## Packages used
 
-- ![express](https://www.npmjs.com/package/express).
+- [express](https://www.npmjs.com/package/express).
 
-- ![axios](https://www.npmjs.com/package/axios).
+- [axios](https://www.npmjs.com/package/axios).
 
-- ![cors](https://www.npmjs.com/package/cors).
+- [cors](https://www.npmjs.com/package/cors).
 
-- ![crypto-js](https://www.npmjs.com/package/crypto-js).
+- [crypto-js](https://www.npmjs.com/package/crypto-js).
 
-- ![express-formidable](https://www.npmjs.com/package/express-formidable).
+- [express-formidable](https://www.npmjs.com/package/express-formidable).
 
-- ![helmet](https://www.npmjs.com/package/helmet).
+- [helmet](https://www.npmjs.com/package/helmet).
 
-- ![md5](https://www.npmjs.com/package/md5).
+- [md5](https://www.npmjs.com/package/md5).
 
-- ![mongoose](https://www.npmjs.com/package/mongoose).
+- [mongoose](https://www.npmjs.com/package/mongoose).
 
-- ![uid2](https://www.npmjs.com/package/uid2).
+- [uid2](https://www.npmjs.com/package/uid2).
 
 ## Install
 
