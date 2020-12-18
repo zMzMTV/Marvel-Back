@@ -2,7 +2,7 @@
 
 # MARVEL API
 
-Fullstack project using the ![Marvel Developper API](https://developer.marvel.com/).
+Fullstack project using the [Marvel Developper API](https://developer.marvel.com/).
 
 ## Features
 
