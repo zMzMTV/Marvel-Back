@@ -38,4 +38,4 @@ Fullstack project using the ![Marvel Developper API](https://developer.marvel.co
 
 Just run `npm` in your console to install all dependencies and `npx nodemon index.js` to launch.
 
-![](https://media.giphy.com/media/9tZc9Mzo9K0yOYx38U/giphy.gif)
+![](https://media.giphy.com/media/14sIbaBZTXKZ7W/giphy.gif)
